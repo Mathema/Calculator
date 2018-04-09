@@ -32,23 +32,24 @@ for(i=0; i<buttons.length; i++){
 			case '-':
 			case '/':
 			case '*':
-				if(operation){
-					console.log("Hi");
-					calculate(previous, current, operation);
-				}
-				previous = parseInt(display.innerText);
+				//if(operation){
+					//console.log("Hi");
+					//calculate(previous, current, operation);
+				//}
+				previous ? previous = current: previous =  parseInt(display.innerText);
 				operation = button;
 				display.innerText = "";
 				break;
 			case '=':
 				display.innerText = current;
 				reset = true;
+				previous = null;
 				break;
 			default:
 				if(placeValue(parseInt(display.innerText))<MAX_LENGTH){
 					if(reset){
 						display.innerText = "";
-
+						reset = false;
 					}
 
 				display.innerText+=button;
